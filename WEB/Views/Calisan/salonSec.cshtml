@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Salon Seçimi";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Salon Seçimi</h2>
+    <form asp-action="Listele" asp-controller="Calisan" method="get">
+        <div class="form-group">
+            <label for="salonId">Salon Seçin:</label>
+            <select id="salonId" name="salonId" class="form-control" required>
+                <option value="">Salon Seçin</option>
+                @foreach (var salon in ViewBag.Salonlar)
+                {
+                    <option value="@salon.Id">@salon.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Göster</button>
+    </form>
+
+    @if (TempData["InfoMessage"] != null)
+    {
+        <div class="alert alert-info mt-3">
+            @TempData["InfoMessage"]
+        </div>
+    }
+</div>

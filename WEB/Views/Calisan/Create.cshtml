@@ -1,0 +1,37 @@
+﻿@model WEB.Models.Calisan
+
+<h2>Yeni Çalışan Ekle</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Ad:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="SalonId">Salon:</label>
+        <select asp-for="SalonId" class="form-control">
+            <option value="">Salon Seçiniz</option>
+            @foreach (var salon in ViewBag.Salonlar)
+            {
+                <option value="@salon.Id">@salon.Name</option>
+            }
+        </select>
+        <span asp-validation-for="SalonId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Position">Pozisyon:</label>
+        <input asp-for="Position" class="form-control" />
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="ExperienceYears">Deneyim Yılı:</label>
+        <input asp-for="ExperienceYears" type="number" class="form-control" />
+        <span asp-validation-for="ExperienceYears" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,18 @@
+﻿@model WEB.Models.Calisan
+
+<h2>Çalışan Detayları</h2>
+
+<div>
+    <strong>Ad:</strong> @Model.Name
+</div>
+<div>
+    <strong>Pozisyon:</strong> @Model.Position
+</div>
+<div>
+    <strong>Deneyim:</strong> @Model.ExperienceYears Yıl
+</div>
+<div>
+    <strong>Salon:</strong> @Model.Salon?.Name
+</div>
+
+<a href="/Calisan/Index" class="btn btn-secondary">Geri Dön</a>

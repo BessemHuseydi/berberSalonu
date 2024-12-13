@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WEB.Models.Hizmet>
+
+<div class="container mt-5">
+    <h2 class="text-center">Hizmetlerimiz</h2>
+    <div class="d-flex justify-content-around flex-wrap mt-4">
+        @foreach (var hizmet in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <div class="image-container" >
+                    <img src="@(!string.IsNullOrEmpty(hizmet.PhotoPath) ? Url.Content(hizmet.PhotoPath) : "~/img/sac3.jpg")" class="card-img-top" alt="@hizmet.Name">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@hizmet.Name</h5>
+                    <p class="card-text">Süre: @hizmet.DurationMinutes dakika</p>
+                    <p class="card-text">Fiyat: @hizmet.Price TL</p>
+                    <a href="/Randevu" class="btn btn-primary">Randevu Al</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

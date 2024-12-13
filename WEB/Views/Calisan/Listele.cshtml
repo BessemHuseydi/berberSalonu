@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WEB.Models.Calisan>
+
+<div class="container mt-5">
+    <h2 class="text-center">@ViewBag.SelectedSalonName Salonu Çalışanları</h2>
+    <a href="@Url.Action("SalonSec", "Calisan")" class="btn btn-secondary mb-3">Salon Seç</a>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning">Bu salona ait çalışan bulunmamaktadır.</div>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Adı</th>
+                    <th>Pozisyon</th>
+                    <th>Deneyim Yılı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var calisan in Model)
+                {
+                    <tr>
+                        <td>@calisan.Id</td>
+                        <td>@calisan.Name</td>
+                        <td>@calisan.Position</td>
+                        <td>@calisan.ExperienceYears</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

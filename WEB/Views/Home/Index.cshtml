@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Home - Berber Shop";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+</head>
+<style>
+    .card-img-top {
+        object-fit: cover; /* Resmi kesmeden alanı doldurur */
+        height: 200px; /* Tüm img için aynı yükseklik */
+        width: 100%; /* Tüm img genişliğini doldurur */
+    }
+</style>
+<div class="hero">
+    <h1>Welcome to Berber Shop</h1>
+    <p>Your modern grooming experience starts here.</p>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="rendevu">Book an Appointment</a>
+</div>
+
+
+
+<div class="container mt-5">
+    <h2 class="text-center">Our Services</h2>
+    <div class="d-flex justify-content-around flex-wrap mt-4">
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/sac1.jpg" class="card-img-top" alt="Haircut">
+            <div class="card-body">
+                <h5 class="card-title">Haircut</h5>
+                <p class="card-text">Professional haircuts tailored to your style.</p>
+                <a href="/rendevu" class="btn btn-primary">Randevu Al</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/sac2.jpg" class="card-img-top" alt="Shaving">
+            <div class="card-body">
+                <h5 class="card-title">Shaving</h5>
+                <p class="card-text">Traditional and modern shaving techniques.</p>
+                <a href="/rendevu" class="btn btn-primary">Randevu Al</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/sac3.jpg" class="card-img-top" alt="Beard Trim">
+            <div class="card-body">
+                <h5 class="card-title">Beard Trim</h5>
+                <p class="card-text">Perfectly styled beard trims to enhance your look.</p>
+                <a href="/rendevu" class="btn btn-primary">Randevu Al</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/alet1.jpg" class="card-img-top" alt="Haircut">
+            <div class="card-body">
+                <h5 class="card-title">Haircut Tools</h5>
+                <p class="card-text">Premium-quality tools for precise and professional haircuts.</p>
+                
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/alet2.jpg" class="card-img-top" alt="Shaving">
+            <div class="card-body">
+                <h5 class="card-title">Modern Barber Shop</h5>
+                <p class="card-text">Experience the ultimate grooming in our state-of-the-art barber shop.</p>
+             
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="~/img/alet3.jpg" class="card-img-top" alt="Beard Trim">
+            <div class="card-body">
+                <h5 class="card-title">Beard Care Tools</h5>
+                <p class="card-text">High-grade tools designed for flawless beard grooming and styling.</p>
+               
+            </div>
+        </div>
+    </div>
+</div>
+

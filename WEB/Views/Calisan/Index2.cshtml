@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WEB.Models.Calisan>
+
+<div class="container mt-5">
+    <h2 class="text-center">Çalışan Yönetimi</h2>
+    <form asp-action="Index" asp-controller="Calisan" method="get" class="mb-4">
+        <div class="form-group">
+            <label for="SalonId">Salon Seçin:</label>
+            <select class="form-control" id="SalonId" name="salonId">
+                <option value="">Salon Seçin</option>
+                @foreach (var salon in ViewBag.Salonlar)
+                {
+                    <option value="@salon.Id">@salon.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Göster</button>
+    </form>
+
+    @if (Model != null && Model.Any())
+    {
+        <h3 class="mt-4">Çalışan Listesi</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Adı</th>
+                    <th>Pozisyon</th>
+                    <th>Deneyim (Yıl)</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var calisan in Model)
+                {
+                    <tr>
+                        <td>@calisan.Id</td>
+                        <td>@calisan.Name</td>
+                        <td>@calisan.Position</td>
+                        <td>@calisan.ExperienceYears</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Calisan", new { id = calisan.Id })" class="btn btn-warning btn-sm">Düzenle</a>
+                            <form asp-action="Delete" asp-controller="Calisan" method="post" style="display: inline;">
+                                <input type="hidden" name="id" value="@calisan.Id" />
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bu çalışanı silmek istediğinize emin misiniz?');">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-muted">Lütfen bir salon seçin ve çalışanları görüntülemek için "Göster" butonuna tıklayın.</p>
+    }
+</div>
