@@ -15,17 +15,16 @@ namespace WEB.Controllers
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        // Sign Up - GET
-        [HttpGet]
+        // GET: SignUp
         public IActionResult SignUp()
         {
             return View();
         }
 
-        // Sign Up - POST
+        // POST: SignUp
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignUp(User model)
+        public IActionResult SignUp22(User model)
         {
             if (ModelState.IsValid)
             {
@@ -33,20 +32,24 @@ namespace WEB.Controllers
                 if (_context.Users.Any(u => u.Email == model.Email))
                 {
                     ModelState.AddModelError("Email", "Bu e-posta adresiyle kayıtlı bir kullanıcı zaten var.");
-                    return View(model);
+                    return View(model); // Aynı view'e geri dön
                 }
 
                 // Şifreyi hashle
-                model.PasswordHash = HashPassword(model.PasswordHash);
+                model.PasswordHash = model.PasswordHash;
 
                 // Kullanıcıyı veritabanına ekle
                 _context.Users.Add(model);
                 _context.SaveChanges();
 
-                TempData["SuccessMessage"] = "Kayıt başarılı! Giriş yapabilirsiniz.";
-                return RedirectToAction("Login");
+                // Başarılı kayıt mesajı
+                TempData["msj"] = "Kayıt başarılı! Giriş yapabilirsiniz.";
+                return RedirectToAction("Login"); // Login sayfasına yönlendir
             }
 
+
+            // Model doğrulama başarısızsa aynı formu geri döndür
+            TempData["msj"] = "Kayıt başarılısız! ";
             return View(model);
         }
 
@@ -60,25 +63,50 @@ namespace WEB.Controllers
         // Login - POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(string email, string password)
+        
+        public IActionResult UsrLogin22(User u)
         {
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            // Kullanıcıyı veritabanında email ile ara
+            var user = _context.Users.FirstOrDefault(x => x.Email == u.Email);
+
+            if (user == null)
             {
-                ModelState.AddModelError("", "E-posta ve şifre gereklidir.");
-                return View();
+                TempData["msj"] = "Kullanıcı bulunamadı.";
+                return RedirectToAction("Login");
             }
 
-            // Kullanıcıyı kontrol et
-            var user = _context.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null || user.PasswordHash != HashPassword(password))
+            // Şifre doğrulaması
+            if (user.PasswordHash != u.PasswordHash)
             {
-                ModelState.AddModelError("", "Geçersiz e-posta veya şifre.");
-                return View();
+                TempData["msj"] = "Şifre hatalı.";
+                return RedirectToAction("Login");
             }
 
-            // Kullanıcıyı oturumda sakla
-            TempData["SuccessMessage"] = $"Hoşgeldiniz, {user.Name}!";
-            return RedirectToAction("Index", "Home");
+            // Kullanıcı giriş başarılı
+            TempData["UserName"] = user.Name;
+            return View("Welcome");
+        }
+        // POST: Users/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Name,Phone,Email,PasswordHash")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                // Şifreyi hashleyin
+                user.PasswordHash = user.PasswordHash;
+
+                // Kullanıcıyı veritabanına ekleyin
+                _context.Add(user);
+                await _context.SaveChangesAsync();
+
+                // Başarılı kayıt mesajı
+                TempData["msj"] = "Kayıt başarılı! Giriş yapabilirsiniz.";
+                return RedirectToAction("Login"); // Login sayfasına yönlendir
+            }
+            // Model doğrulama başarısızsa aynı formu geri döndür
+            TempData["msj"] = "Kayıt başarılısız! ";
+            return View(user);
         }
 
         // Logout
