@@ -23,6 +23,6 @@ namespace WEB.Models
         public string PasswordHash { get; set; } // Şifre hashlenmiş olarak saklanır.
 
         // Navigation Property
-        public ICollection<Randevu> Randevular { get; set; }
+        public ICollection<Randevu>? Randevular { get; set; }
     }
 }
