@@ -1,0 +1,51 @@
+﻿@model WEB.Models.Randevu
+
+@{
+    ViewData["Title"] = "Randevu Düzenle";
+}
+
+<h1>Randevu Düzenle</h1>
+
+<h4>Randevu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Kullanıcı</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalonId" class="control-label">Salon</label>
+                <select asp-for="SalonId" class="form-control" asp-items="ViewBag.SalonId"></select>
+                <span asp-validation-for="SalonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HizmetId" class="control-label">Hizmet</label>
+                <select asp-for="HizmetId" class="form-control" asp-items="ViewBag.HizmetId"></select>
+                <span asp-validation-for="HizmetId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentTime" class="control-label">Randevu Zamanı</label>
+                <input asp-for="AppointmentTime" class="form-control" type="datetime-local" value="@Model.AppointmentTime.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Fiyat</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

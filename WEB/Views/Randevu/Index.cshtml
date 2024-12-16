@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WEB.Models.Randevu>
+
+@{
+    ViewData["Title"] = "Randevu Listesi";
+}
+
+<h1>Randevu Listesi</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Yeni Randevu Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kullanıcı</th>
+            <th>Salon</th>
+            <th>Hizmet</th>
+            <th>Randevu Zamanı</th>
+            <th>Fiyat</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.User?.Name</td>
+                <td>@item.Salon?.Name</td>
+                <td>@item.Hizmet?.Name</td>
+                <td>@item.AppointmentTime.ToString("g")</td>
+                <td>@item.Price.ToString("TL")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
