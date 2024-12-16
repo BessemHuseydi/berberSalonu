@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "AI";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">AI Recommendations</h2>
+    <form asp-action="GetSuggestions" asp-controller="AI" method="post" enctype="multipart/form-data">
+        <div class="form-group mt-3">
+            <label for="fileUpload">Upload a Photo:</label>
+            <input type="file" id="fileUpload" name="fileUpload" class="form-control" accept="image/*" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Göster</button>
+    </form>
+</div>
