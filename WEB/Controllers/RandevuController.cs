@@ -23,8 +23,8 @@ namespace WEB.Controllers
         {
             var randevular = _context.Randevular
                 .Include(r => r.User)
-                .Include(r => r.Salon)
-                .Include(r => r.Hizmet);
+                .Include(r => r.Salon);
+                
             return View(await randevular.ToListAsync());
         }
 
@@ -39,7 +39,7 @@ namespace WEB.Controllers
             var randevu = await _context.Randevular
                 .Include(r => r.User)
                 .Include(r => r.Salon)
-                .Include(r => r.Hizmet)
+                
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (randevu == null)
             {
@@ -158,7 +158,7 @@ namespace WEB.Controllers
             var randevu = await _context.Randevular
                 .Include(r => r.User)
                 .Include(r => r.Salon)
-                .Include(r => r.Hizmet)
+                
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (randevu == null)
             {
@@ -192,7 +192,7 @@ namespace WEB.Controllers
 
             ViewBag.UserId = new SelectList(users, "Id", "Name", randevu?.UserId);
             ViewBag.SalonId = new SelectList(salonlar, "Id", "Name", randevu?.SalonId);
-            ViewBag.HizmetId = new SelectList(hizmetler, "Id", "Name", randevu?.HizmetId);
+            
         }
     }
 }
