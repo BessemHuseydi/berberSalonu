@@ -10,14 +10,33 @@ namespace WEB.Models
         {
         }
         public DbSet<Hizmet> Hizmetler { get; set; }
+       
         public DbSet<Randevu> Randevular { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Salon> Salonlar { get; set; }
         public DbSet<Calisan> Calisanlar { get; set; }
         public DbSet<CalismaSaati> CalismaSaatleri { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            // Randevu <-> Hizmet İlişkisi
+            
+
+            // Randevu <-> User İlişkisi
+            modelBuilder.Entity<Randevu>()
+                .HasOne(r => r.User)
+                .WithMany() // Eğer User sınıfında Randevular koleksiyonu varsa .WithMany(u => u.Randevular) olarak düzenleyin
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Randevu <-> Salon İlişkisi
+            modelBuilder.Entity<Randevu>()
+                .HasOne(r => r.Salon)
+                .WithMany() // Eğer Salon sınıfında Randevular koleksiyonu varsa .WithMany(s => s.Randevular) olarak düzenleyin
+                .HasForeignKey(r => r.SalonId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             var passwordHasher = new PasswordHasher<User>();
 
@@ -60,80 +79,19 @@ namespace WEB.Models
             );
             modelBuilder.Entity<Calisan>().HasData(
      // Salon 1
-     new Calisan { Id = 1, Name = "Zeynep Aydın", SalonId = 1, Position = "Kuaför", ExperienceYears = 5 },
-     new Calisan { Id = 2, Name = "Ali Yılmaz", SalonId = 1, Position = "Berber", ExperienceYears = 6 },
-     new Calisan { Id = 3, Name = "Selin Arslan", SalonId = 1, Position = "Saç Stilisti", ExperienceYears = 4 },
-     new Calisan { Id = 4, Name = "Ayşe Demir", SalonId = 1, Position = "Makyaj Uzmanı", ExperienceYears = 3 },
-     new Calisan { Id = 5, Name = "Mehmet Kaya", SalonId = 1, Position = "Masaj Terapisti", ExperienceYears = 7 },
+             new Calisan { Id = 1, Name = "Zeynep Aydın", SalonId = 1, Position = "Kuaför", ExperienceYears = 5 },
+             new Calisan { Id = 2, Name = "Ali Yılmaz", SalonId = 1, Position = "Berber", ExperienceYears = 6 },
+             new Calisan { Id = 3, Name = "Selin Arslan", SalonId = 1, Position = "Saç Stilisti", ExperienceYears = 4 },
+             new Calisan { Id = 4, Name = "Ayşe Demir", SalonId = 1, Position = "Makyaj Uzmanı", ExperienceYears = 3 },
+             new Calisan { Id = 5, Name = "Mehmet Kaya", SalonId = 1, Position = "Masaj Terapisti", ExperienceYears = 7 },
 
-     // Salon 2
-     new Calisan { Id = 6, Name = "Hülya Akın", SalonId = 2, Position = "Manikürist", ExperienceYears = 3 },
-     new Calisan { Id = 7, Name = "Fatma Çelik", SalonId = 2, Position = "Pedikürist", ExperienceYears = 5 },
-     new Calisan { Id = 8, Name = "Ahmet Şen", SalonId = 2, Position = "Berber", ExperienceYears = 8 },
-     new Calisan { Id = 9, Name = "Burcu Arslan", SalonId = 2, Position = "Cilt Bakım Uzmanı", ExperienceYears = 6 },
-
-     // Salon 3
-     new Calisan { Id = 10, Name = "Burak Şen", SalonId = 3, Position = "Pedikürist", ExperienceYears = 4 },
-     new Calisan { Id = 11, Name = "Selim Kaya", SalonId = 3, Position = "Saç Stilisti", ExperienceYears = 7 },
-     new Calisan { Id = 12, Name = "Buse Güneş", SalonId = 3, Position = "Kuaför", ExperienceYears = 2 },
-     new Calisan { Id = 13, Name = "Kemal Demir", SalonId = 3, Position = "Berber", ExperienceYears = 6 },
-     new Calisan { Id = 14, Name = "Aycan Yıldız", SalonId = 3, Position = "Makyaj Uzmanı", ExperienceYears = 3 },
-
-     // Salon 4
-     new Calisan { Id = 15, Name = "Elif Güneş", SalonId = 4, Position = "Cilt Bakım Uzmanı", ExperienceYears = 6 },
-     new Calisan { Id = 16, Name = "Hasan Çelik", SalonId = 4, Position = "Masaj Terapisti", ExperienceYears = 8 },
-     new Calisan { Id = 17, Name = "Fatih Arslan", SalonId = 4, Position = "Berber", ExperienceYears = 5 },
-     new Calisan { Id = 18, Name = "Burcu Kaya", SalonId = 4, Position = "Kuaför", ExperienceYears = 4 },
-     new Calisan { Id = 19, Name = "Zehra Şahin", SalonId = 4, Position = "Makyaj Uzmanı", ExperienceYears = 3 },
-
-     // Salon 5
-     new Calisan { Id = 20, Name = "Selim Kaya", SalonId = 5, Position = "Saç Stilisti", ExperienceYears = 7 },
-     new Calisan { Id = 21, Name = "Merve Şen", SalonId = 5, Position = "Manikürist", ExperienceYears = 3 },
-     new Calisan { Id = 22, Name = "Ahmet Çelik", SalonId = 5, Position = "Berber", ExperienceYears = 8 },
-     new Calisan { Id = 23, Name = "Fatma Yıldız", SalonId = 5, Position = "Pedikürist", ExperienceYears = 5 },
-
-     // Salon 6
-     new Calisan { Id = 24, Name = "Kemal Yılmaz", SalonId = 6, Position = "Berber", ExperienceYears = 8 },
-     new Calisan { Id = 25, Name = "Zehra Akın", SalonId = 6, Position = "Kuaför", ExperienceYears = 6 },
-     new Calisan { Id = 26, Name = "Aycan Arslan", SalonId = 6, Position = "Makyaj Uzmanı", ExperienceYears = 4 },
-     new Calisan { Id = 27, Name = "Emre Şen", SalonId = 6, Position = "Masaj Terapisti", ExperienceYears = 7 },
-
-     // Salon 7
-     new Calisan { Id = 28, Name = "Merve Şen", SalonId = 7, Position = "Makyaj Uzmanı", ExperienceYears = 4 },
-     new Calisan { Id = 29, Name = "Fatih Çelik", SalonId = 7, Position = "Masaj Terapisti", ExperienceYears = 5 },
-     new Calisan { Id = 30, Name = "Büşra Arslan", SalonId = 7, Position = "Kuaför", ExperienceYears = 6 },
-     new Calisan { Id = 31, Name = "Hasan Kaya", SalonId = 7, Position = "Berber", ExperienceYears = 9 },
-
-     // Salon 8
-     new Calisan { Id = 32, Name = "Fatih Çelik", SalonId = 8, Position = "Masaj Terapisti", ExperienceYears = 5 },
-     new Calisan { Id = 33, Name = "Burcu Yıldız", SalonId = 8, Position = "Kuaför", ExperienceYears = 4 },
-     new Calisan { Id = 34, Name = "Emre Kaya", SalonId = 8, Position = "Berber", ExperienceYears = 7 },
-     new Calisan { Id = 35, Name = "Selin Şen", SalonId = 8, Position = "Makyaj Uzmanı", ExperienceYears = 3 },
-
-     // Salon 9
-     new Calisan { Id = 36, Name = "Ahmet Arslan", SalonId = 9, Position = "Berber", ExperienceYears = 10 },
-     new Calisan { Id = 37, Name = "Zehra Demir", SalonId = 9, Position = "Kuaför", ExperienceYears = 5 },
-     new Calisan { Id = 38, Name = "Kemal Şahin", SalonId = 9, Position = "Masaj Terapisti", ExperienceYears = 7 },
-     new Calisan { Id = 39, Name = "Fatma Çelik", SalonId = 9, Position = "Makyaj Uzmanı", ExperienceYears = 4 },
-
-     // Salon 10
-     new Calisan { Id = 40, Name = "Ayşe Can", SalonId = 10, Position = "Manikürist", ExperienceYears = 2 },
-     new Calisan { Id = 41, Name = "Selim Kaya", SalonId = 10, Position = "Saç Stilisti", ExperienceYears = 7 },
-     new Calisan { Id = 42, Name = "Hasan Şen", SalonId = 10, Position = "Berber", ExperienceYears = 8 },
-     new Calisan { Id = 43, Name = "Büşra Çelik", SalonId = 10, Position = "Makyaj Uzmanı", ExperienceYears = 3 }
- );
-            modelBuilder.Entity<Randevu>().HasData(
-            new Randevu { Id = 1, UserId = 1, SalonId = 1, AppointmentTime = new DateTime(2024, 12, 13, 14, 0, 0), Service = "Saç Kesimi", Price = 50 },
-            new Randevu { Id = 2, UserId = 2, SalonId = 2, AppointmentTime = new DateTime(2024, 12, 14, 15, 0, 0), Service = "Manikür", Price = 80 },
-            new Randevu { Id = 3, UserId = 3, SalonId = 3, AppointmentTime = new DateTime(2024, 12, 15, 16, 0, 0), Service = "Pedikür", Price = 100 },
-            new Randevu { Id = 4, UserId = 4, SalonId = 4, AppointmentTime = new DateTime(2024, 12, 16, 11, 0, 0), Service = "Cilt Bakımı", Price = 150 },
-            new Randevu { Id = 5, UserId = 5, SalonId = 5, AppointmentTime = new DateTime(2024, 12, 17, 13, 0, 0), Service = "Saç Boyama", Price = 200 },
-            new Randevu { Id = 6, UserId = 6, SalonId = 6, AppointmentTime = new DateTime(2024, 12, 18, 10, 0, 0), Service = "Sakal Kesimi", Price = 40 },
-            new Randevu { Id = 7, UserId = 7, SalonId = 7, AppointmentTime = new DateTime(2024, 12, 19, 12, 0, 0), Service = "Masaj", Price = 250 },
-            new Randevu { Id = 8, UserId = 8, SalonId = 8, AppointmentTime = new DateTime(2024, 12, 20, 15, 0, 0), Service = "Yüz Temizleme", Price = 100 },
-            new Randevu { Id = 9, UserId = 9, SalonId = 9, AppointmentTime = new DateTime(2024, 12, 21, 16, 0, 0), Service = "Saç Kesimi", Price = 50 },
-            new Randevu { Id = 10, UserId = 10, SalonId = 10, AppointmentTime = new DateTime(2024, 12, 22, 14, 0, 0), Service = "Manikür", Price = 80 }
-            );
+             // Salon 2
+             new Calisan { Id = 6, Name = "Hülya Akın", SalonId = 2, Position = "Manikürist", ExperienceYears = 3 },
+             new Calisan { Id = 7, Name = "Fatma Çelik", SalonId = 2, Position = "Pedikürist", ExperienceYears = 5 },
+             new Calisan { Id = 8, Name = "Ahmet Şen", SalonId = 2, Position = "Berber", ExperienceYears = 8 },
+             new Calisan { Id = 9, Name = "Burcu Arslan", SalonId = 2, Position = "Cilt Bakım Uzmanı", ExperienceYears = 6 }          
+         );
+           
             modelBuilder.Entity<CalismaSaati>().HasData(
                 new CalismaSaati { Id = 1, CalisanId = 1, DayOfWeek = "Pazartesi", StartTime = new TimeSpan(9, 0, 0), EndTime = new TimeSpan(18, 0, 0) },
                 new CalismaSaati { Id = 2, CalisanId = 1, DayOfWeek = "Salı", StartTime = new TimeSpan(9, 0, 0), EndTime = new TimeSpan(18, 0, 0) },

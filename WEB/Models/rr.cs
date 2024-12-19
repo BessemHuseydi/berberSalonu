@@ -2,17 +2,18 @@
 
 namespace WEB.Models
 {
-    public class Randevu
+    public class rr
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Kullanıcı ID gereklidir.")]
+      
         public int UserId { get; set; }
 
-        [Required(ErrorMessage = "Salon ID gereklidir.")]
+        
         public int SalonId { get; set; }
 
-        
+
+        public int HizmetId { get; set; }
 
         [Required(ErrorMessage = "Randevu zamanı gereklidir.")]
         public DateTime AppointmentTime { get; set; }
@@ -24,6 +25,6 @@ namespace WEB.Models
         // Navigation Properties
         public User User { get; set; }
         public Salon Salon { get; set; }
-        
+        public Hizmet Hizmet { get; set; }
     }
 }

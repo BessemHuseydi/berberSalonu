@@ -21,5 +21,6 @@ namespace WEB.Models
         // Fotoğraf Yolu
         [StringLength(255, ErrorMessage = "Fotoğraf yolu en fazla 255 karakter olabilir.")]
         public string? PhotoPath { get; set; } // Nullable özelliği
+       
     }
 }
