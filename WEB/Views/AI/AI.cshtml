@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "AI Recommendations";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">AI Önerileri</h2>
+
+    @if (ViewBag.Suggestions != null)
+    {
+        <div class="alert alert-info mt-3">
+            @ViewBag.Suggestions
+        </div>
+    }
+
+    <form asp-action="GetSuggestions" asp-controller="AI" method="post" enctype="multipart/form-data">
+        <div class="form-group mt-3">
+            <label for="fileUpload">Fotoğraf Yükleyin:</label>
+            <input type="file" id="fileUpload" name="fileUpload" class="form-control" accept="image/*" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Gönder</button>
+    </form>
+</div>

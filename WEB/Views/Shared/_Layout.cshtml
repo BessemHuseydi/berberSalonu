@@ -12,50 +12,53 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="~/img/ii.png" />
+    <link rel="icon" type="image/x-icon" href="~/img/logo.png" />
     <!-- Alternatif PNG Favicon -->
     <!-- <link rel="icon" type="image/png" href="~/img/favicon.png" /> -->
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Berber Shop</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary sticky-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    <span align-text-top>Barber Shop</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
-                    <ul class="navbar-nav flex-grow-1 justify-content-end">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="aboutUs">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Calisan" asp-action="salonSec">worker</a>
+                            <a class="nav-link" asp-area="" asp-controller="Calisan" asp-action="salonSec">Workers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Hizmet" asp-action="Index">Services</a>
+                            <a class="nav-link" asp-area="" asp-controller="Hizmet" asp-action="Index">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="api">AI</a>
+                            <a class="nav-link" asp-area="" asp-controller="AI" asp-action="GetSuggestions">AI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="rendevu">Appointment</a>
+                            <a class="btn btn-outline-light btn-sm mx-2" asp-area="" asp-controller="Home" asp-action="rendevu">Appointment</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="contact">Contact</a>
+                            <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
