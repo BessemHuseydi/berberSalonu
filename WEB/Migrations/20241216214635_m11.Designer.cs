@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WEB.Models;
 
@@ -11,9 +12,11 @@ using WEB.Models;
 namespace WEB.Migrations
 {
     [DbContext(typeof(BerberContext))]
-    partial class BerberContextModelSnapshot : ModelSnapshot
+    [Migration("20241216214635_m11")]
+    partial class m11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -950,7 +953,7 @@ namespace WEB.Migrations
                             Id = 1,
                             Email = "ahmet.yilmaz@gmail.com",
                             Name = "Ahmet Yılmaz",
-                            PasswordHash = "AQAAAAIAAYagAAAAEElS4fvnLnY9lXMEsKIZF8eysVhhizbf0xIUJRQnn0xof+v74Z9zFGNfnB6nJqe9xA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDbrxrTR47yjnTkWYqIPibZsGyZA+pS+vqlOWsqBDxijB8FSngRhH6/kZ+yb/pZLPw==",
                             Phone = "05331234567"
                         },
                         new
@@ -958,7 +961,7 @@ namespace WEB.Migrations
                             Id = 2,
                             Email = "ayse.demir@gmail.com",
                             Name = "Ayşe Demir",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKRmgzz202iZZt10FkxdQIrtBOBFRx97FSkWu0U4/RMeEQ1V6QDVBuXujj1/wk3wmw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELgWGvtCA25nKaqbi2+9wFXs8/laC6rsfZRg3EGWB/jnaIwl4BKzQGhPJTDDxU35rg==",
                             Phone = "05339876543"
                         },
                         new
@@ -966,7 +969,7 @@ namespace WEB.Migrations
                             Id = 3,
                             Email = "fatma.celik@gmail.com",
                             Name = "Fatma Çelik",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMquzKeLYjJrzN6ob8NDTXC+EcCnl/D4B6q8ivm4pabsTdtzY11lqS2j7SMrxEmEQw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAYbBML/bikx/iyBTiNK+9NOz4Dlu7Z0PLwgVMo8ldmVCeWVCR/Bv3IJL75Z1HEgvw==",
                             Phone = "05431234567"
                         },
                         new
@@ -974,7 +977,7 @@ namespace WEB.Migrations
                             Id = 4,
                             Email = "mehmet.kara@gmail.com",
                             Name = "Mehmet Kara",
-                            PasswordHash = "AQAAAAIAAYagAAAAENVfkHzdyAJrkJT1/XkQj4qZhg6IjKOVcIEbLHe50DSLpnf3ahX8B7X5V0Ci/ZXHWA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMTVD9i9p4nfsrbrziytKsa0TsR6DMxB5kN+S28hKPL+FdNUb9ScLN2UTNTyTu7nHw==",
                             Phone = "05439876543"
                         },
                         new
@@ -982,7 +985,7 @@ namespace WEB.Migrations
                             Id = 5,
                             Email = "ali.can@gmail.com",
                             Name = "Ali Can",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC1EpW9tgbyb82H3+4zqE4Oxc/BFsGYqVzSKgG0svuyAnFt1xCQ9gxw4DTLupYFETA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENACjzOj1OuBfblYvCHrV50YGUisD3QWwRgvWCCWhzLAIdJ3noL1yKHskJyA3MLM4g==",
                             Phone = "05551234567"
                         },
                         new
@@ -990,7 +993,7 @@ namespace WEB.Migrations
                             Id = 6,
                             Email = "merve.sen@gmail.com",
                             Name = "Merve Şen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJUreBAiN5fKg1nJwmbmMsRbuNwOV0mSAVI8AqMJFR8kPd11rLujlkmbvjbN3ma1cQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFhEv2Je6Q5dluLVeefyFjGaOU+DUJ9GsBBg3wgJD84FCNd3ZZNi1nHhoKiCCYvUxg==",
                             Phone = "05631234567"
                         },
                         new
@@ -998,7 +1001,7 @@ namespace WEB.Migrations
                             Id = 7,
                             Email = "burak.arslan@gmail.com",
                             Name = "Burak Arslan",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFwHEpHF/Gh7Vj5tJPGfVeOUcMyVDKbE12mfKrZkS0KQ+duaTL71nzUntyqQJd6LnQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO+vDzLvyvn4dP8olpICVgQTGHD+QXZzDDxjb9DbDaMq4Goiyben0hS8MTkJznfCQQ==",
                             Phone = "05471234567"
                         },
                         new
@@ -1006,7 +1009,7 @@ namespace WEB.Migrations
                             Id = 8,
                             Email = "emre.yildiz@gmail.com",
                             Name = "Emre Yıldız",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIxgteuVk4B+NVFBdvIhy7trMXxCIlNkYQLwrCkD3MWFMqesJgvzTfC/YjJDhsK6CA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJPsjRGur4360TKP3XxUvz7ZfbnbJHwGHDfMWbUuLoH4VgHRaNeYSvOD0RdcZa/WTQ==",
                             Phone = "05381234567"
                         },
                         new
@@ -1014,7 +1017,7 @@ namespace WEB.Migrations
                             Id = 9,
                             Email = "elif.gul@gmail.com",
                             Name = "Elif Gül",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEWmAf+NGvpo88VULyauNhttBXYCcNkNWx9YPtbSYIgWm6r5+6kft/tQrmgk4hmODA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ1Xv+GPWp/FdbPBK+JHQrvaQk5efvcLcu9yRCzDBVA8uySQtieDZptnANmLIsPAwA==",
                             Phone = "05569876543"
                         },
                         new
@@ -1022,43 +1025,9 @@ namespace WEB.Migrations
                             Id = 10,
                             Email = "huseyin.demir@gmail.com",
                             Name = "Hüseyin Demir",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO6PMaw+cJ0/QbSNC13Or98YLB4z7OtOPIgPeOUvrC4PYb/w4pcIlA8tBU35UxD5dQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENqQO1Ncf9aKT4fPuITFg+pUv1O9wEY/7gLnnEio37BwNwEO4US7Y7AtJ9gznNh7JA==",
                             Phone = "05351239876"
                         });
-                });
-
-            modelBuilder.Entity("WEB.Models.rr", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("AppointmentTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("HizmetId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SalonId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HizmetId");
-
-                    b.HasIndex("SalonId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Rrs");
                 });
 
             modelBuilder.Entity("WEB.Models.Calisan", b =>
@@ -1114,33 +1083,6 @@ namespace WEB.Migrations
                     b.HasOne("WEB.Models.User", null)
                         .WithMany("Randevular")
                         .HasForeignKey("UserId1");
-
-                    b.Navigation("Hizmet");
-
-                    b.Navigation("Salon");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WEB.Models.rr", b =>
-                {
-                    b.HasOne("WEB.Models.Hizmet", "Hizmet")
-                        .WithMany()
-                        .HasForeignKey("HizmetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.Salon", "Salon")
-                        .WithMany()
-                        .HasForeignKey("SalonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Hizmet");
 

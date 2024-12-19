@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WEB.Models;
 
@@ -11,9 +12,11 @@ using WEB.Models;
 namespace WEB.Migrations
 {
     [DbContext(typeof(BerberContext))]
-    partial class BerberContextModelSnapshot : ModelSnapshot
+    [Migration("20241216205715_m1")]
+    partial class m1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -688,37 +691,22 @@ namespace WEB.Migrations
                     b.Property<int>("HizmetId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HizmetId1")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SalonId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SalonId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("HizmetId");
 
-                    b.HasIndex("HizmetId1");
-
                     b.HasIndex("SalonId");
 
-                    b.HasIndex("SalonId1");
-
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("Randevular");
 
@@ -950,7 +938,7 @@ namespace WEB.Migrations
                             Id = 1,
                             Email = "ahmet.yilmaz@gmail.com",
                             Name = "Ahmet Yılmaz",
-                            PasswordHash = "AQAAAAIAAYagAAAAEElS4fvnLnY9lXMEsKIZF8eysVhhizbf0xIUJRQnn0xof+v74Z9zFGNfnB6nJqe9xA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGcgQePWG1oKhIRxPC+0MgW2HMgvcAg2XkB8uGRiC8rJE/zgKTUupNJZLJ/QNx9rqw==",
                             Phone = "05331234567"
                         },
                         new
@@ -958,7 +946,7 @@ namespace WEB.Migrations
                             Id = 2,
                             Email = "ayse.demir@gmail.com",
                             Name = "Ayşe Demir",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKRmgzz202iZZt10FkxdQIrtBOBFRx97FSkWu0U4/RMeEQ1V6QDVBuXujj1/wk3wmw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEgaCd6rRR5cfZJznVnsw/hcOjSVmf8pcpZZA3mOJn5ei32JW+W1ipLISlZjhX0onA==",
                             Phone = "05339876543"
                         },
                         new
@@ -966,7 +954,7 @@ namespace WEB.Migrations
                             Id = 3,
                             Email = "fatma.celik@gmail.com",
                             Name = "Fatma Çelik",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMquzKeLYjJrzN6ob8NDTXC+EcCnl/D4B6q8ivm4pabsTdtzY11lqS2j7SMrxEmEQw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFeD8b+0LAx/KG2gwRIj56ra2dDrPq5ZTjHeAeF4jOdbpu94DvBnVoHcdhulqtxRrg==",
                             Phone = "05431234567"
                         },
                         new
@@ -974,7 +962,7 @@ namespace WEB.Migrations
                             Id = 4,
                             Email = "mehmet.kara@gmail.com",
                             Name = "Mehmet Kara",
-                            PasswordHash = "AQAAAAIAAYagAAAAENVfkHzdyAJrkJT1/XkQj4qZhg6IjKOVcIEbLHe50DSLpnf3ahX8B7X5V0Ci/ZXHWA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKgWzhvb7y8Z7mFZzDMd497aSr8LZq4L76BAaC6Io5295O2M0zy8TbVauiMI/hvGWA==",
                             Phone = "05439876543"
                         },
                         new
@@ -982,7 +970,7 @@ namespace WEB.Migrations
                             Id = 5,
                             Email = "ali.can@gmail.com",
                             Name = "Ali Can",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC1EpW9tgbyb82H3+4zqE4Oxc/BFsGYqVzSKgG0svuyAnFt1xCQ9gxw4DTLupYFETA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF5fU+NkLU51g9s4kpR71nLjMIbf23a6sBXGuLQ0H62CYruX1LNRA97fgopYPbNr/w==",
                             Phone = "05551234567"
                         },
                         new
@@ -990,7 +978,7 @@ namespace WEB.Migrations
                             Id = 6,
                             Email = "merve.sen@gmail.com",
                             Name = "Merve Şen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJUreBAiN5fKg1nJwmbmMsRbuNwOV0mSAVI8AqMJFR8kPd11rLujlkmbvjbN3ma1cQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGq/+qGBIRZcm2x+1wSf8AAh4I1D2x34KEf6NVqDohcLiVTlFW7KUvXI7HY0x680VA==",
                             Phone = "05631234567"
                         },
                         new
@@ -998,7 +986,7 @@ namespace WEB.Migrations
                             Id = 7,
                             Email = "burak.arslan@gmail.com",
                             Name = "Burak Arslan",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFwHEpHF/Gh7Vj5tJPGfVeOUcMyVDKbE12mfKrZkS0KQ+duaTL71nzUntyqQJd6LnQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJbAmY5sn5VwiDjmnbjqh24S6H8coERSWHSqbCn2Fq47Ho6nufkm0JLXHjMVCXHfiA==",
                             Phone = "05471234567"
                         },
                         new
@@ -1006,7 +994,7 @@ namespace WEB.Migrations
                             Id = 8,
                             Email = "emre.yildiz@gmail.com",
                             Name = "Emre Yıldız",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIxgteuVk4B+NVFBdvIhy7trMXxCIlNkYQLwrCkD3MWFMqesJgvzTfC/YjJDhsK6CA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAfuqZIrNk5vs8lut4C5o7Y3vDXfcx0PaxsNjd29gsXQkaZ9L9w6Ha9hSzRiIUKmuw==",
                             Phone = "05381234567"
                         },
                         new
@@ -1014,7 +1002,7 @@ namespace WEB.Migrations
                             Id = 9,
                             Email = "elif.gul@gmail.com",
                             Name = "Elif Gül",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEWmAf+NGvpo88VULyauNhttBXYCcNkNWx9YPtbSYIgWm6r5+6kft/tQrmgk4hmODA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGib6z6Kogb3W/HDdb3lSbFogtmxjcr/NigxT3pRLaBsue/N2eRgecNf2XRMnzGOKg==",
                             Phone = "05569876543"
                         },
                         new
@@ -1022,43 +1010,9 @@ namespace WEB.Migrations
                             Id = 10,
                             Email = "huseyin.demir@gmail.com",
                             Name = "Hüseyin Demir",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO6PMaw+cJ0/QbSNC13Or98YLB4z7OtOPIgPeOUvrC4PYb/w4pcIlA8tBU35UxD5dQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAeWKjxCCPq2wX9Xc6sAbGLIP2+Y+RIexk4yFOc8xylJ688i2Utf6QuiLfUmcLY1Kw==",
                             Phone = "05351239876"
                         });
-                });
-
-            modelBuilder.Entity("WEB.Models.rr", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("AppointmentTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("HizmetId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SalonId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HizmetId");
-
-                    b.HasIndex("SalonId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Rrs");
                 });
 
             modelBuilder.Entity("WEB.Models.Calisan", b =>
@@ -1091,53 +1045,14 @@ namespace WEB.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WEB.Models.Hizmet", null)
-                        .WithMany("Randevular")
-                        .HasForeignKey("HizmetId1");
-
                     b.HasOne("WEB.Models.Salon", "Salon")
-                        .WithMany()
-                        .HasForeignKey("SalonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.Salon", null)
                         .WithMany("Randevular")
-                        .HasForeignKey("SalonId1");
-
-                    b.HasOne("WEB.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.User", null)
-                        .WithMany("Randevular")
-                        .HasForeignKey("UserId1");
-
-                    b.Navigation("Hizmet");
-
-                    b.Navigation("Salon");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WEB.Models.rr", b =>
-                {
-                    b.HasOne("WEB.Models.Hizmet", "Hizmet")
-                        .WithMany()
-                        .HasForeignKey("HizmetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.Salon", "Salon")
-                        .WithMany()
                         .HasForeignKey("SalonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WEB.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Randevular")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1152,11 +1067,6 @@ namespace WEB.Migrations
             modelBuilder.Entity("WEB.Models.Calisan", b =>
                 {
                     b.Navigation("CalismaSaatleri");
-                });
-
-            modelBuilder.Entity("WEB.Models.Hizmet", b =>
-                {
-                    b.Navigation("Randevular");
                 });
 
             modelBuilder.Entity("WEB.Models.Salon", b =>
