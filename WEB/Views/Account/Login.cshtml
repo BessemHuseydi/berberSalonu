@@ -9,7 +9,7 @@
         <div class="alert alert-danger text-center">@TempData["msj"]</div>
     }
 
-    <form asp-action="UsrLogin222" asp-controller="Account" method="post" class="login-form">
+    <form asp-action="UsrLogin22" asp-controller="Account" method="post" class="login-form">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-group">
@@ -31,12 +31,6 @@
         <p class="register-text">
             Hesabınız yok mu?
             <a href="@Url.Action("SignUp", "Account")" class="register-link">Kayıt Ol</a>
-        </p>
-    </div>
-    <div class="text-center mt-4">
-        <p class="register-text">
-            Hesabınızda ?
-            <a href="@Url.Action("Logout", "Account")" class="register-link">Çıkış Yap</a>
         </p>
     </div>
 </div>
