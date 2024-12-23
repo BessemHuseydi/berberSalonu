@@ -59,7 +59,7 @@ namespace WEB.Controllers
         // POST: Randevu/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,SalonId,HizmetId,AppointmentTime,Price")] Randevu randevu)
+        public async Task<IActionResult> Create2([Bind("Id,UserId,SalonId,HizmetId,AppointmentTime,Price")] Randevu randevu)
         {
             if (ModelState.IsValid)
             {

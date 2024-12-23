@@ -33,20 +33,20 @@ namespace WEB.Migrations
                     b.Property<int>("ExperienceYears")
                         .HasColumnType("int");
 
+                    b.Property<int>("HizmetId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Position")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<int>("SalonId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HizmetId");
 
                     b.HasIndex("SalonId");
 
@@ -57,345 +57,166 @@ namespace WEB.Migrations
                         {
                             Id = 1,
                             ExperienceYears = 5,
-                            Name = "Zeynep Aydın",
-                            Position = "Kuaför",
+                            HizmetId = 1,
+                            Name = "Ahmet Yılmaz",
                             SalonId = 1
                         },
                         new
                         {
                             Id = 2,
-                            ExperienceYears = 6,
-                            Name = "Ali Yılmaz",
-                            Position = "Berber",
+                            ExperienceYears = 3,
+                            HizmetId = 2,
+                            Name = "Mehmet Çelik",
                             SalonId = 1
                         },
                         new
                         {
                             Id = 3,
-                            ExperienceYears = 4,
-                            Name = "Selin Arslan",
-                            Position = "Saç Stilisti",
-                            SalonId = 1
+                            ExperienceYears = 10,
+                            HizmetId = 3,
+                            Name = "Ayşe Demir",
+                            SalonId = 2
                         },
                         new
                         {
                             Id = 4,
-                            ExperienceYears = 3,
-                            Name = "Ayşe Demir",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 1
+                            ExperienceYears = 8,
+                            HizmetId = 4,
+                            Name = "Fatma Kaya",
+                            SalonId = 2
                         },
                         new
                         {
                             Id = 5,
-                            ExperienceYears = 7,
-                            Name = "Mehmet Kaya",
-                            Position = "Masaj Terapisti",
-                            SalonId = 1
+                            ExperienceYears = 15,
+                            HizmetId = 1,
+                            Name = "Hasan Ak",
+                            SalonId = 3
                         },
                         new
                         {
                             Id = 6,
-                            ExperienceYears = 3,
-                            Name = "Hülya Akın",
-                            Position = "Manikürist",
-                            SalonId = 2
+                            ExperienceYears = 6,
+                            HizmetId = 5,
+                            Name = "Zehra Şen",
+                            SalonId = 3
                         },
                         new
                         {
                             Id = 7,
-                            ExperienceYears = 5,
-                            Name = "Fatma Çelik",
-                            Position = "Pedikürist",
-                            SalonId = 2
+                            ExperienceYears = 20,
+                            HizmetId = 2,
+                            Name = "Ali Güneş",
+                            SalonId = 4
                         },
                         new
                         {
                             Id = 8,
-                            ExperienceYears = 8,
-                            Name = "Ahmet Şen",
-                            Position = "Berber",
-                            SalonId = 2
+                            ExperienceYears = 12,
+                            HizmetId = 3,
+                            Name = "Emre Öztürk",
+                            SalonId = 4
                         },
                         new
                         {
                             Id = 9,
-                            ExperienceYears = 6,
-                            Name = "Burcu Arslan",
-                            Position = "Cilt Bakım Uzmanı",
-                            SalonId = 2
+                            ExperienceYears = 7,
+                            HizmetId = 4,
+                            Name = "Elif Taş",
+                            SalonId = 5
                         },
                         new
                         {
                             Id = 10,
-                            ExperienceYears = 4,
-                            Name = "Burak Şen",
-                            Position = "Pedikürist",
-                            SalonId = 3
-                        },
-                        new
-                        {
-                            Id = 11,
-                            ExperienceYears = 7,
-                            Name = "Selim Kaya",
-                            Position = "Saç Stilisti",
-                            SalonId = 3
-                        },
-                        new
-                        {
-                            Id = 12,
                             ExperienceYears = 2,
-                            Name = "Buse Güneş",
-                            Position = "Kuaför",
-                            SalonId = 3
-                        },
-                        new
-                        {
-                            Id = 13,
-                            ExperienceYears = 6,
-                            Name = "Kemal Demir",
-                            Position = "Berber",
-                            SalonId = 3
-                        },
-                        new
-                        {
-                            Id = 14,
-                            ExperienceYears = 3,
-                            Name = "Aycan Yıldız",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 3
-                        },
-                        new
-                        {
-                            Id = 15,
-                            ExperienceYears = 6,
-                            Name = "Elif Güneş",
-                            Position = "Cilt Bakım Uzmanı",
-                            SalonId = 4
-                        },
-                        new
-                        {
-                            Id = 16,
-                            ExperienceYears = 8,
-                            Name = "Hasan Çelik",
-                            Position = "Masaj Terapisti",
-                            SalonId = 4
-                        },
-                        new
-                        {
-                            Id = 17,
-                            ExperienceYears = 5,
-                            Name = "Fatih Arslan",
-                            Position = "Berber",
-                            SalonId = 4
-                        },
-                        new
-                        {
-                            Id = 18,
-                            ExperienceYears = 4,
-                            Name = "Burcu Kaya",
-                            Position = "Kuaför",
-                            SalonId = 4
-                        },
-                        new
-                        {
-                            Id = 19,
-                            ExperienceYears = 3,
-                            Name = "Zehra Şahin",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 4
-                        },
-                        new
-                        {
-                            Id = 20,
-                            ExperienceYears = 7,
-                            Name = "Selim Kaya",
-                            Position = "Saç Stilisti",
+                            HizmetId = 1,
+                            Name = "İrem Bulut",
                             SalonId = 5
+                        });
+                });
+
+            modelBuilder.Entity("WEB.Models.CalisanHizmet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CalisanId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HizmetId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CalisanId");
+
+                    b.HasIndex("HizmetId");
+
+                    b.ToTable("CalisanHizmetleri");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CalisanId = 1,
+                            HizmetId = 1
                         },
                         new
                         {
-                            Id = 21,
-                            ExperienceYears = 3,
-                            Name = "Merve Şen",
-                            Position = "Manikürist",
-                            SalonId = 5
+                            Id = 2,
+                            CalisanId = 1,
+                            HizmetId = 2
                         },
                         new
                         {
-                            Id = 22,
-                            ExperienceYears = 8,
-                            Name = "Ahmet Çelik",
-                            Position = "Berber",
-                            SalonId = 5
+                            Id = 3,
+                            CalisanId = 2,
+                            HizmetId = 1
                         },
                         new
                         {
-                            Id = 23,
-                            ExperienceYears = 5,
-                            Name = "Fatma Yıldız",
-                            Position = "Pedikürist",
-                            SalonId = 5
+                            Id = 4,
+                            CalisanId = 2,
+                            HizmetId = 3
                         },
                         new
                         {
-                            Id = 24,
-                            ExperienceYears = 8,
-                            Name = "Kemal Yılmaz",
-                            Position = "Berber",
-                            SalonId = 6
+                            Id = 5,
+                            CalisanId = 3,
+                            HizmetId = 2
                         },
                         new
                         {
-                            Id = 25,
-                            ExperienceYears = 6,
-                            Name = "Zehra Akın",
-                            Position = "Kuaför",
-                            SalonId = 6
+                            Id = 6,
+                            CalisanId = 3,
+                            HizmetId = 4
                         },
                         new
                         {
-                            Id = 26,
-                            ExperienceYears = 4,
-                            Name = "Aycan Arslan",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 6
+                            Id = 7,
+                            CalisanId = 4,
+                            HizmetId = 1
                         },
                         new
                         {
-                            Id = 27,
-                            ExperienceYears = 7,
-                            Name = "Emre Şen",
-                            Position = "Masaj Terapisti",
-                            SalonId = 6
+                            Id = 8,
+                            CalisanId = 4,
+                            HizmetId = 5
                         },
                         new
                         {
-                            Id = 28,
-                            ExperienceYears = 4,
-                            Name = "Merve Şen",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 7
+                            Id = 9,
+                            CalisanId = 5,
+                            HizmetId = 3
                         },
                         new
                         {
-                            Id = 29,
-                            ExperienceYears = 5,
-                            Name = "Fatih Çelik",
-                            Position = "Masaj Terapisti",
-                            SalonId = 7
-                        },
-                        new
-                        {
-                            Id = 30,
-                            ExperienceYears = 6,
-                            Name = "Büşra Arslan",
-                            Position = "Kuaför",
-                            SalonId = 7
-                        },
-                        new
-                        {
-                            Id = 31,
-                            ExperienceYears = 9,
-                            Name = "Hasan Kaya",
-                            Position = "Berber",
-                            SalonId = 7
-                        },
-                        new
-                        {
-                            Id = 32,
-                            ExperienceYears = 5,
-                            Name = "Fatih Çelik",
-                            Position = "Masaj Terapisti",
-                            SalonId = 8
-                        },
-                        new
-                        {
-                            Id = 33,
-                            ExperienceYears = 4,
-                            Name = "Burcu Yıldız",
-                            Position = "Kuaför",
-                            SalonId = 8
-                        },
-                        new
-                        {
-                            Id = 34,
-                            ExperienceYears = 7,
-                            Name = "Emre Kaya",
-                            Position = "Berber",
-                            SalonId = 8
-                        },
-                        new
-                        {
-                            Id = 35,
-                            ExperienceYears = 3,
-                            Name = "Selin Şen",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 8
-                        },
-                        new
-                        {
-                            Id = 36,
-                            ExperienceYears = 10,
-                            Name = "Ahmet Arslan",
-                            Position = "Berber",
-                            SalonId = 9
-                        },
-                        new
-                        {
-                            Id = 37,
-                            ExperienceYears = 5,
-                            Name = "Zehra Demir",
-                            Position = "Kuaför",
-                            SalonId = 9
-                        },
-                        new
-                        {
-                            Id = 38,
-                            ExperienceYears = 7,
-                            Name = "Kemal Şahin",
-                            Position = "Masaj Terapisti",
-                            SalonId = 9
-                        },
-                        new
-                        {
-                            Id = 39,
-                            ExperienceYears = 4,
-                            Name = "Fatma Çelik",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 9
-                        },
-                        new
-                        {
-                            Id = 40,
-                            ExperienceYears = 2,
-                            Name = "Ayşe Can",
-                            Position = "Manikürist",
-                            SalonId = 10
-                        },
-                        new
-                        {
-                            Id = 41,
-                            ExperienceYears = 7,
-                            Name = "Selim Kaya",
-                            Position = "Saç Stilisti",
-                            SalonId = 10
-                        },
-                        new
-                        {
-                            Id = 42,
-                            ExperienceYears = 8,
-                            Name = "Hasan Şen",
-                            Position = "Berber",
-                            SalonId = 10
-                        },
-                        new
-                        {
-                            Id = 43,
-                            ExperienceYears = 3,
-                            Name = "Büşra Çelik",
-                            Position = "Makyaj Uzmanı",
-                            SalonId = 10
+                            Id = 10,
+                            CalisanId = 5,
+                            HizmetId = 4
                         });
                 });
 
@@ -688,37 +509,22 @@ namespace WEB.Migrations
                     b.Property<int>("HizmetId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HizmetId1")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("SalonId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SalonId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("HizmetId");
 
-                    b.HasIndex("HizmetId1");
-
                     b.HasIndex("SalonId");
 
-                    b.HasIndex("SalonId1");
-
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("Randevular");
 
@@ -726,91 +532,91 @@ namespace WEB.Migrations
                         new
                         {
                             Id = 1,
-                            AppointmentTime = new DateTime(2024, 12, 13, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            AppointmentTime = new DateTime(2024, 12, 23, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             HizmetId = 1,
-                            Price = 50m,
+                            Price = 50.0m,
                             SalonId = 1,
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            AppointmentTime = new DateTime(2024, 12, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            AppointmentTime = new DateTime(2024, 12, 23, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             HizmetId = 2,
-                            Price = 80m,
-                            SalonId = 2,
+                            Price = 30.0m,
+                            SalonId = 1,
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            AppointmentTime = new DateTime(2024, 12, 15, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            AppointmentTime = new DateTime(2024, 12, 23, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             HizmetId = 3,
-                            Price = 100m,
-                            SalonId = 3,
+                            Price = 100.0m,
+                            SalonId = 2,
                             UserId = 3
                         },
                         new
                         {
                             Id = 4,
-                            AppointmentTime = new DateTime(2024, 12, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            AppointmentTime = new DateTime(2024, 12, 23, 15, 30, 0, 0, DateTimeKind.Unspecified),
                             HizmetId = 4,
-                            Price = 150m,
-                            SalonId = 4,
+                            Price = 150.0m,
+                            SalonId = 2,
                             UserId = 4
                         },
                         new
                         {
                             Id = 5,
-                            AppointmentTime = new DateTime(2024, 12, 17, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            AppointmentTime = new DateTime(2024, 12, 24, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             HizmetId = 5,
-                            Price = 200m,
-                            SalonId = 5,
+                            Price = 75.0m,
+                            SalonId = 3,
                             UserId = 5
                         },
                         new
                         {
                             Id = 6,
-                            AppointmentTime = new DateTime(2024, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HizmetId = 6,
-                            Price = 40m,
-                            SalonId = 6,
+                            AppointmentTime = new DateTime(2024, 12, 24, 10, 30, 0, 0, DateTimeKind.Unspecified),
+                            HizmetId = 1,
+                            Price = 50.0m,
+                            SalonId = 3,
                             UserId = 6
                         },
                         new
                         {
                             Id = 7,
-                            AppointmentTime = new DateTime(2024, 12, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            HizmetId = 7,
-                            Price = 250m,
-                            SalonId = 7,
+                            AppointmentTime = new DateTime(2024, 12, 24, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            HizmetId = 2,
+                            Price = 30.0m,
+                            SalonId = 4,
                             UserId = 7
                         },
                         new
                         {
                             Id = 8,
-                            AppointmentTime = new DateTime(2024, 12, 20, 15, 0, 0, 0, DateTimeKind.Unspecified),
-                            HizmetId = 8,
-                            Price = 100m,
-                            SalonId = 8,
+                            AppointmentTime = new DateTime(2024, 12, 25, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            HizmetId = 3,
+                            Price = 100.0m,
+                            SalonId = 4,
                             UserId = 8
                         },
                         new
                         {
                             Id = 9,
-                            AppointmentTime = new DateTime(2024, 12, 21, 16, 0, 0, 0, DateTimeKind.Unspecified),
-                            HizmetId = 1,
-                            Price = 50m,
-                            SalonId = 9,
+                            AppointmentTime = new DateTime(2024, 12, 25, 12, 30, 0, 0, DateTimeKind.Unspecified),
+                            HizmetId = 4,
+                            Price = 150.0m,
+                            SalonId = 5,
                             UserId = 9
                         },
                         new
                         {
                             Id = 10,
-                            AppointmentTime = new DateTime(2024, 12, 22, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            HizmetId = 2,
-                            Price = 80m,
-                            SalonId = 10,
+                            AppointmentTime = new DateTime(2024, 12, 25, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            HizmetId = 5,
+                            Price = 75.0m,
+                            SalonId = 5,
                             UserId = 10
                         });
                 });
@@ -950,7 +756,7 @@ namespace WEB.Migrations
                             Id = 1,
                             Email = "ahmet.yilmaz@gmail.com",
                             Name = "Ahmet Yılmaz",
-                            PasswordHash = "AQAAAAIAAYagAAAAEElS4fvnLnY9lXMEsKIZF8eysVhhizbf0xIUJRQnn0xof+v74Z9zFGNfnB6nJqe9xA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPDXXWDU/gZ4lOCqGqgJnZkT2ez4WMDsTCgiyL9W294ggqvLwliefoQUNzulApXW7Q==",
                             Phone = "05331234567"
                         },
                         new
@@ -958,7 +764,7 @@ namespace WEB.Migrations
                             Id = 2,
                             Email = "ayse.demir@gmail.com",
                             Name = "Ayşe Demir",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKRmgzz202iZZt10FkxdQIrtBOBFRx97FSkWu0U4/RMeEQ1V6QDVBuXujj1/wk3wmw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEME9cKMgU+LXKPxB/6o6f6r31MbJ5HfRGNF0sRKjteBwcg87xLIBfwIYUifyb2WbUw==",
                             Phone = "05339876543"
                         },
                         new
@@ -966,7 +772,7 @@ namespace WEB.Migrations
                             Id = 3,
                             Email = "fatma.celik@gmail.com",
                             Name = "Fatma Çelik",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMquzKeLYjJrzN6ob8NDTXC+EcCnl/D4B6q8ivm4pabsTdtzY11lqS2j7SMrxEmEQw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDx7YEFRPupmS6hMO4EIJXrn6WXCH4mqlI6ptscZSyppgPYWbcif7gKc5+26jnphsA==",
                             Phone = "05431234567"
                         },
                         new
@@ -974,7 +780,7 @@ namespace WEB.Migrations
                             Id = 4,
                             Email = "mehmet.kara@gmail.com",
                             Name = "Mehmet Kara",
-                            PasswordHash = "AQAAAAIAAYagAAAAENVfkHzdyAJrkJT1/XkQj4qZhg6IjKOVcIEbLHe50DSLpnf3ahX8B7X5V0Ci/ZXHWA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP7x5t3DumUhlxzpN0Nyo9w+FJilqtf8NTFPs61ZIaNwmL+fAPMutvTEW3zafqA2hw==",
                             Phone = "05439876543"
                         },
                         new
@@ -982,7 +788,7 @@ namespace WEB.Migrations
                             Id = 5,
                             Email = "ali.can@gmail.com",
                             Name = "Ali Can",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC1EpW9tgbyb82H3+4zqE4Oxc/BFsGYqVzSKgG0svuyAnFt1xCQ9gxw4DTLupYFETA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDY9yJjbcv37LegabMDRSu00YXfmDScDnMkt61ivciqN6CjX8V3Zcj9MeontfDCiBA==",
                             Phone = "05551234567"
                         },
                         new
@@ -990,7 +796,7 @@ namespace WEB.Migrations
                             Id = 6,
                             Email = "merve.sen@gmail.com",
                             Name = "Merve Şen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJUreBAiN5fKg1nJwmbmMsRbuNwOV0mSAVI8AqMJFR8kPd11rLujlkmbvjbN3ma1cQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOeyIX5owWngPfHseUVCN2BPwDpSlU0xa6oHr+JEza4bEGKstRORDXHYYD+iBiKJOw==",
                             Phone = "05631234567"
                         },
                         new
@@ -998,7 +804,7 @@ namespace WEB.Migrations
                             Id = 7,
                             Email = "burak.arslan@gmail.com",
                             Name = "Burak Arslan",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFwHEpHF/Gh7Vj5tJPGfVeOUcMyVDKbE12mfKrZkS0KQ+duaTL71nzUntyqQJd6LnQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGVF4t5mIe/LRFVUR/gg1QcsWWdVGrXfX9y717zc4bjL0S9Llz4yhbWk+c63etjrNA==",
                             Phone = "05471234567"
                         },
                         new
@@ -1006,7 +812,7 @@ namespace WEB.Migrations
                             Id = 8,
                             Email = "emre.yildiz@gmail.com",
                             Name = "Emre Yıldız",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIxgteuVk4B+NVFBdvIhy7trMXxCIlNkYQLwrCkD3MWFMqesJgvzTfC/YjJDhsK6CA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPatktJ+9d5Wv4FZtOMWEhZ3DZi5d0Pq0u0B8ioMDRhpRPpnULBg+raOQzBdTW3/Sw==",
                             Phone = "05381234567"
                         },
                         new
@@ -1014,7 +820,7 @@ namespace WEB.Migrations
                             Id = 9,
                             Email = "elif.gul@gmail.com",
                             Name = "Elif Gül",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEWmAf+NGvpo88VULyauNhttBXYCcNkNWx9YPtbSYIgWm6r5+6kft/tQrmgk4hmODA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECQSQI9CE/L+KuZiALJb2I6NXfD2CzDrsao6oWxDoB7Q5hwVQwM10QBBz+Vzg91PEg==",
                             Phone = "05569876543"
                         },
                         new
@@ -1022,54 +828,47 @@ namespace WEB.Migrations
                             Id = 10,
                             Email = "huseyin.demir@gmail.com",
                             Name = "Hüseyin Demir",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO6PMaw+cJ0/QbSNC13Or98YLB4z7OtOPIgPeOUvrC4PYb/w4pcIlA8tBU35UxD5dQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEG2NB1nvJP+CC0shu4ixPQck4sCaIm8LUJJPN8yreopIVqdtY61AG+OevgHoKtj6WA==",
                             Phone = "05351239876"
                         });
                 });
 
-            modelBuilder.Entity("WEB.Models.rr", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("AppointmentTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("HizmetId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SalonId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HizmetId");
-
-                    b.HasIndex("SalonId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Rrs");
-                });
-
             modelBuilder.Entity("WEB.Models.Calisan", b =>
                 {
+                    b.HasOne("WEB.Models.Hizmet", "Hizmet")
+                        .WithMany()
+                        .HasForeignKey("HizmetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("WEB.Models.Salon", "Salon")
                         .WithMany("Calisanlar")
                         .HasForeignKey("SalonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Hizmet");
+
                     b.Navigation("Salon");
+                });
+
+            modelBuilder.Entity("WEB.Models.CalisanHizmet", b =>
+                {
+                    b.HasOne("WEB.Models.Calisan", "Calisan")
+                        .WithMany()
+                        .HasForeignKey("CalisanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WEB.Models.Hizmet", "Hizmet")
+                        .WithMany()
+                        .HasForeignKey("HizmetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Calisan");
+
+                    b.Navigation("Hizmet");
                 });
 
             modelBuilder.Entity("WEB.Models.CalismaSaati", b =>
@@ -1091,53 +890,14 @@ namespace WEB.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WEB.Models.Hizmet", null)
-                        .WithMany("Randevular")
-                        .HasForeignKey("HizmetId1");
-
                     b.HasOne("WEB.Models.Salon", "Salon")
-                        .WithMany()
-                        .HasForeignKey("SalonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.Salon", null)
                         .WithMany("Randevular")
-                        .HasForeignKey("SalonId1");
-
-                    b.HasOne("WEB.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.User", null)
-                        .WithMany("Randevular")
-                        .HasForeignKey("UserId1");
-
-                    b.Navigation("Hizmet");
-
-                    b.Navigation("Salon");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WEB.Models.rr", b =>
-                {
-                    b.HasOne("WEB.Models.Hizmet", "Hizmet")
-                        .WithMany()
-                        .HasForeignKey("HizmetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WEB.Models.Salon", "Salon")
-                        .WithMany()
                         .HasForeignKey("SalonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WEB.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Randevular")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1152,11 +912,6 @@ namespace WEB.Migrations
             modelBuilder.Entity("WEB.Models.Calisan", b =>
                 {
                     b.Navigation("CalismaSaatleri");
-                });
-
-            modelBuilder.Entity("WEB.Models.Hizmet", b =>
-                {
-                    b.Navigation("Randevular");
                 });
 
             modelBuilder.Entity("WEB.Models.Salon", b =>

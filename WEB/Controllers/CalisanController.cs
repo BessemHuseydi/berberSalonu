@@ -119,7 +119,7 @@ namespace WEB.Controllers
                 // Alanları güncelliyoruz.
                 calisan.Name = model.Name;
                 calisan.SalonId = model.SalonId;
-                calisan.Position = model.Position;
+               
                 calisan.ExperienceYears = model.ExperienceYears;
 
                 _context.Calisanlar.Update(calisan);
