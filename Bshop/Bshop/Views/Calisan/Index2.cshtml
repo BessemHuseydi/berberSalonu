@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Bshop.Models.Calisan>
+
+@{
+    ViewData["Title"] = "Çalışanlar - Salon Filtreleme";
+}
+
+<h2>@ViewBag.SelectedSalonName - Çalışanlar</h2>
+
+<form asp-action="Index2" method="get" class="form-inline mb-4">
+    <div class="form-group mr-3">
+        <label for="salonId" class="mr-2">Salon Seçiniz:</label>
+        <select id="salonId" name="salonId" class="form-control">
+            <option value="">-- Tüm Salonlar --</option>
+            @foreach (var salon in ViewBag.Salonlar)
+            {
+                <option value="@salon.Id">@salon.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrele</button>
+</form>
+
+@if (Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Çalışan Adı</th>
+                <th>Salon</th>
+                <th>Deneyim Yılı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var calisan in Model)
+            {
+                <tr>
+                    <td>@calisan.FullName</td>
+                    <td>@calisan.Salon.Name</td>
+                    <td>@calisan.ExperienceYears</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (ViewBag.SelectedSalonId != null)
+{
+    <div class="alert alert-info">Seçilen salon için çalışan bulunamadı.</div>
+}

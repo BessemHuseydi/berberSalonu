@@ -1,0 +1,27 @@
+﻿@model Bshop.Models.Randevu
+
+<h2>Randevuyu Sil</h2>
+
+<div>
+    <h4>Randevu</h4>
+    <dl class="dl-horizontal">
+        <dt>Salon</dt>
+        <dd>@Model.Salon?.Name </dd>
+
+        <dt>Hizmet</dt>
+        <dd>@Model.CalisanHizmet?.Hizmet?.Name </dd>
+
+        <dt>Tarih</dt>
+        <dd>@Model.RandevuSaati.ToString("dd.MM.yyyy HH:mm")</dd>
+    </dl>
+
+    <p>Bu randevuyu silmek istediğinize emin misiniz?</p>
+
+    @using (Html.BeginForm("Delete", "Randevu", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        <button type="submit" class="btn btn-danger">Sil</button>
+        @Html.ActionLink("İptal", "Index", null, new { @class = "btn btn-secondary" })
+    }
+</div>

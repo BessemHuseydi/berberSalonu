@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saç Modeli Analizi</title>
+</head>
+<body>
+    <h1>Saç Modeli Analizi</h1>
+    <form id="uploadForm">
+        <input type="file" id="photo" name="photo" accept="image/*">
+        <button type="submit">Fotoğraf Yükle</button>
+    </form>
+    <h2>Analiz Sonucu:</h2>
+    <pre id="result"></pre>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const photo = document.getElementById("photo").files[0];
+            if (!photo) {
+                alert("Lütfen bir fotoğraf seçin.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("photo", photo);
+
+            const response = await fetch("http://localhost:5000/api/upload/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                document.getElementById("result").textContent = JSON.stringify(result, null, 2);
+            } else {
+                document.getElementById("result").textContent = "Fotoğraf yüklenemedi.";
+            }
+        });
+    </script>
+</body>
+</html>

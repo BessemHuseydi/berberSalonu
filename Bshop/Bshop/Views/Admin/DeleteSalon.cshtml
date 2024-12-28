@@ -1,0 +1,52 @@
+﻿@model Bshop.Models.Salon
+
+@{
+    ViewData["Title"] = "Salon Sil";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- TempData mesajını gösterme -->
+@if (TempData["msj"] != null)
+{
+    var mesaj = TempData["msj"].ToString();
+    var alertClass = mesaj.Contains("silindi") ? "alert-success" : "alert-danger";
+    <div class="alert @alertClass alert-dismissible fade show" role="alert">
+        @mesaj
+        <button type="button" class="close" data-dismiss="alert" aria-label="Kapat">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<h3>Bu salonu silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Salon</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ContactNumber)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteSalon" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Salons" class="btn btn-secondary">İptal</a>
+    </form>
+</div>

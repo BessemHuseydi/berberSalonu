@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Saç Stili Seçimi";
+}
+
+<h2>Saç Stili Seçimi</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form asp-action="ProcessImage" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="uploadedImage">Fotoğraf Yükleyin:</label>
+        <input type="file" name="uploadedImage" id="uploadedImage" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="style">Saç Stili:</label>
+        <select name="style" id="style" class="form-control" required>
+            @foreach (var style in ViewBag.HairStyles)
+            {
+                <option value="@style.Key">@style.Value</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Gönder</button>
+</form>

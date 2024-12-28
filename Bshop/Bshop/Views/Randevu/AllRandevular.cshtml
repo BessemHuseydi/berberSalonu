@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Tüm Randevular";
+    var onaylanmisRandevular = (List<Bshop.Models.Randevu>)ViewBag.OnaylanmisRandevular;
+    var onaylanmamisRandevular = (List<Bshop.Models.Randevu>)ViewBag.OnaylanmamisRandevular;
+}
+
+<h2>Tüm Randevular</h2>
+
+
+<div>
+    <h3>Onaylanmamış Randevular</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Randevu Alan</th>
+                <th>Salon</th>
+                <th>Çalışan</th>
+                <th>Hizmet</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (onaylanmamisRandevular != null && onaylanmamisRandevular.Any())
+            {
+                int counter = 1;
+                foreach (var randevu in onaylanmamisRandevular)
+                {
+                    <tr>
+                        <td>@counter</td>
+                        <td>@randevu.User?.FullName</td>
+                        <td>@randevu.Salon?.Name</td>
+                        <td>@randevu.CalisanHizmet?.Calisan?.FullName</td>
+                        <td>@randevu.CalisanHizmet?.Hizmet?.Name</td>
+                        <td>@randevu.RandevuSaati.ToString("dd.MM.yyyy HH:mm")</td>
+                        <td>
+                            <a href="@Url.Action("EditWorker", "Randevu", new { id = randevu.Id })" class="btn btn-sm btn-primary">Onayla</a>
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center">Hiç onaylanmamış randevu bulunmamaktadır.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <h3>Onaylanmış Randevular</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Randevu Alan</th>
+                <th>Salon</th>
+                <th>Çalışan</th>
+                <th>Hizmet</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (onaylanmisRandevular != null && onaylanmisRandevular.Any())
+            {
+                int counter = 1;
+                foreach (var randevu in onaylanmisRandevular)
+                {
+                    <tr>
+                        <td>@counter</td>
+                        <td>@randevu.User?.FullName</td>
+                        <td>@randevu.Salon?.Name</td>
+                        <td>@randevu.CalisanHizmet?.Calisan?.FullName</td>
+                        <td>@randevu.CalisanHizmet?.Hizmet?.Name</td>
+                        <td>@randevu.RandevuSaati.ToString("dd.MM.yyyy HH:mm")</td>
+                        <td>
+                            <a href="@Url.Action("EditWorker", "Randevu", new { id = randevu.Id })" class="btn btn-sm btn-primary">Onaylanmis</a>
+                        </td>
+                    </tr>
+                    counter++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center">Hiç onaylanmış randevu bulunmamaktadır.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
