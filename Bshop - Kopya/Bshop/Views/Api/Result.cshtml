@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "İşlenmiş Resim";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">İşlenmiş Resim</h2>
+
+    @if (ViewBag.ProcessedImage != null)
+    {
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg border-0">
+                    <img src="@ViewBag.ProcessedImage" alt="İşlenmiş Resim" class="card-img-top img-fluid rounded" />
+                    <div class="card-body text-center">
+                        <p class="card-text">İşlenmiş resminiz aşağıda görüntülenmektedir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center">
+            <p>İşlenmiş resim bulunamadı.</p>
+        </div>
+    }
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-primary btn-lg">Geri Dön</a>
+    </div>
+</div>

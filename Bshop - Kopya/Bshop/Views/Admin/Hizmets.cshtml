@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Bshop.Models.Hizmet>
+
+@{
+    ViewData["Title"] = "Hizmetler";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- TempData mesajını gösterme -->
+@if (TempData["msj"] != null)
+{
+    var mesaj = TempData["msj"].ToString();
+    var alertClass = mesaj.Contains("eklendi") || mesaj.Contains("güncellendi") || mesaj.Contains("silindi") ? "alert-success" : "alert-danger";
+    <div class="alert @alertClass alert-dismissible fade show" role="alert">
+        @mesaj
+        <button type="button" class="close" data-dismiss="alert" aria-label="Kapat">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<p>
+    <a asp-action="CreateHizmet" class="btn btn-primary">Yeni Hizmet Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Description)</th>
+            <th>@Html.DisplayNameFor(model => model.First().DurationMinutes)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Price)</th>
+            <th>@Html.DisplayNameFor(model => model.First().PhotoUrl)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hizmet in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => hizmet.Name)</td>
+                <td>@Html.DisplayFor(modelItem => hizmet.Description)</td>
+                <td>@Html.DisplayFor(modelItem => hizmet.DurationMinutes)</td>
+                <td>@Html.DisplayFor(modelItem => hizmet.Price)</td>
+                <td>
+                    <img src="@hizmet.PhotoUrl" alt="@hizmet.Name" style="max-width:100px; max-height:100px;" />
+                </td>
+                <td>
+                    <a asp-action="EditHizmet" asp-route-id="@hizmet.Id">Düzenle</a> |
+                    <a asp-action="DeleteHizmet" asp-route-id="@hizmet.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

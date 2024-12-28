@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Bshop.Models.Calisan>
+
+@{
+    ViewData["Title"] = "Çalışanlar";
+}
+
+<h2>Çalışanlar</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Çalışan Adı</th>
+            <th>Salon</th>
+            <th>Deneyim Yılı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var calisan in Model)
+        {
+            <tr>
+                <td>@calisan.FullName</td>
+                <td>@calisan.Salon.Name</td>
+                <td>@calisan.ExperienceYears</td>
+            </tr>
+        }
+    </tbody>
+</table>

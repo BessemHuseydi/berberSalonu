@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="~/img/bg_home.jpg" class="card-img-top" alt="Kullanıcı Yönetimi" />
+            <div class="card-body">
+                <h5 class="card-title">Kullanıcı Yönetimi</h5>
+                <p class="card-text">Kullanıcıları görüntüle, düzenle ve rollerini değiştir.</p>
+                <a asp-action="Users" class="btn btn-primary">Yönet</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="~/img/bg_home.jpg" class="card-img-top" alt="Salon Yönetimi" />
+            <div class="card-body">
+                <h5 class="card-title">Salon Yönetimi</h5>
+                <p class="card-text">Salon ekle, sil ve düzenle.</p>
+                <a asp-action="Salons" class="btn btn-primary">Yönet</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="~/img/bg_home.jpg" class="card-img-top" alt="Hizmet Yönetimi" />
+            <div class="card-body">
+                <h5 class="card-title">Hizmet Yönetimi</h5>
+                <p class="card-text">Hizmet ekle, sil ve düzenle.</p>
+                <a asp-action="Hizmets" class="btn btn-primary">Yönet</a>
+            </div>
+        </div>
+    </div>
+</div>

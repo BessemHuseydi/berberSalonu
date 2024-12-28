@@ -1,0 +1,146 @@
+﻿/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bg_home.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+    .hero h1 {
+        font-size: 3.5em;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .hero p {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .hero .btn-primary {
+        background-color: #ff5733;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+        .hero .btn-primary:hover {
+            background-color: #e04e1e;
+        }
+
+/* Card Styles */
+.card {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-10px);
+    }
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Testimonial Section */
+.testimonials {
+    background-color: #f1f1f1;
+    padding: 50px 20px;
+    margin-top: 50px;
+}
+
+    .testimonials h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+.testimonial {
+    background-color: white;
+    padding: 20px;
+    border-left: 5px solid #ff5733;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+blockquote {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.blockquote-footer {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Contact Section */
+.container.text-center {
+    margin-top: 50px;
+    font-size: 1.1em;
+}
+
+    .container.text-center h2 {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .container.text-center p {
+        margin-bottom: 10px;
+    }
+
+    .container.text-center a {
+        color: #ff5733;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .container.text-center a:hover {
+            text-decoration: underline;
+        }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .testimonials h2 {
+        font-size: 1.8em;
+    }
+}

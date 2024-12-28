@@ -1,0 +1,37 @@
+﻿@model Bshop.Models.Randevu
+
+@{
+    ViewBag.Title = "Randevu Oluştur";
+}
+
+<h2>Randevu Oluştur</h2>
+
+@using (Html.BeginForm("Create", "Randevu", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SalonId, "Salon")
+        @Html.DropDownList("SalonId", (IEnumerable<SelectListItem>)ViewBag.Salons, "Seçiniz", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SalonId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CalisanHizmetId, "Çalışan Hizmet")
+        @Html.DropDownList("CalisanHizmetId", (IEnumerable<SelectListItem>)ViewBag.CalisanHizmetler, "Seçiniz", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CalisanHizmetId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RandevuSaati, "Randevu Saati")
+        @Html.EditorFor(model => model.RandevuSaati, new { htmlAttributes = new { @class = "form-control", type = "datetime-local" } })
+        @Html.ValidationMessageFor(model => model.RandevuSaati)
+    </div>
+
+   @*  <div class="form-group">
+        @Html.LabelFor(model => model.Onaylandi, "Onaylandı")
+        @Html.CheckBoxFor(model => model.Onaylandi, new { @class = "form-check-input" })
+    </div> *@
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+}
